@@ -8,6 +8,7 @@ public class RegularRound implements Round {
 
     public RegularRound(String round) {
         this.round = round;
+        boxerRoundScore();
     }
 
     @Override
@@ -22,16 +23,16 @@ public class RegularRound implements Round {
 
     @Override
     public void boxerRoundScore() {
-        this.redBoxerScore = Byte.parseByte(round.split("-")[1]);
-        this.blueBoxerScore = Byte.parseByte(round.split("-")[0]);
+        this.blueBoxerScore = Byte.parseByte(round.split("-")[1].replace(" ", ""));
+        this.redBoxerScore = Byte.parseByte(round.split("-")[0].replace(" ", ""));
     }
 
     public String getRoundScore() {
-        return round.split("-")[1] + "-" + round.split("-")[0];
+        return this.toString();
     }
 
     @Override
     public String toString() {
-        return "Round score [" + round + "]";
+        return this.redBoxerScore + "-" + this.blueBoxerScore;
     }
 }
