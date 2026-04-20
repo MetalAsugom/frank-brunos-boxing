@@ -1,4 +1,4 @@
-
+import edu.teamrocket.ScoreCard;
 
 public class Brunosbox 
 {

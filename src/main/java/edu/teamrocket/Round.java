@@ -1,10 +1,10 @@
 package edu.teamrocket;
 
-public interface Round {
+interface Round {
 
-    public byte redBoxerScore ();
+    public byte getRedBoxerScore();
 
-    public byte blueBoxerScore ();
+    public byte getBlueBoxerScore();
 
-    public void boxerRoundScore ();
+    public void boxerRoundScore();
 }
