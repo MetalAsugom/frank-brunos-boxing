@@ -1,4 +1,6 @@
-package edu.badpals.brunosbox;
+package edu.teamrocket;
+
+import edu.teamrocket.RegularRound;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
