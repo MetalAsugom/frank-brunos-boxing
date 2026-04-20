@@ -1,6 +1,6 @@
 package edu.teamrocket;
 
-public class RegularRound implements Round{
+public class RegularRound implements Round {
 
     private String round;
     private byte blueBoxerScore;
@@ -11,23 +11,15 @@ public class RegularRound implements Round{
     }
 
     @Override
-    public byte blueBoxerScore() {
-        return this.blueBoxerScore;
-    }
-
-    @Override
-    public byte redBoxerScore() {
-        return this.redBoxerScore;
-    }
-
     public byte getRedBoxerScore() {
         return this.redBoxerScore;
     }
 
+    @Override
     public byte getBlueBoxerScore() {
         return this.blueBoxerScore;
     }
-    
+
     @Override
     public void boxerRoundScore() {
         this.redBoxerScore = Byte.parseByte(round.split("-")[1]);
@@ -35,7 +27,7 @@ public class RegularRound implements Round{
     }
 
     public String getRoundScore() {
-        return round.split("-")[1]+"-"+round.split("-")[0];
+        return round.split("-")[1] + "-" + round.split("-")[0];
     }
 
     @Override
