@@ -1,14 +1,16 @@
 package edu.teamrocket;
 
+import java.util.ArrayList;
+import java.util.List;
+import edu.teamrocket.Round;
+
 public class ScoreCard {
 
     private final String color;
     private String redCorner;
     private String blueCorner;
-    private final String judgeScoreCard;
-
-
-
+    private String judgeScoreCard;
+    private List<Round> rounds = new ArrayList<Round>();
 
     public ScoreCard(String color) {
         this.color = color;
@@ -22,5 +24,25 @@ public class ScoreCard {
         this.blueCorner = boxerName;
     }
 
-    public loadJudgeScoreCard() {}
+    public int getRedBoxerFinalScore() {
+        int score = 0;
+        for (Round round : rounds) {
+            score += round.getRedBoxerScore();
+        }
+        return score;
+    }
+
+    public int getBlueBoxerFinalScore() {
+        int score = 0;
+        for (Round round : rounds) {
+            score += round.getBlueBoxerScore();
+        }
+        return score;
+    }
+
+    public String loadJudgeScoreCard(String judgeScoreCard) {
+        return judgeScoreCard;
+    }
+
+    /* calcular scores totales de cada boxeador */
 }
