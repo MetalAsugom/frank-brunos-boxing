@@ -23,6 +23,10 @@ public class KnockdownRound implements Round{
 
     @Override
     public void boxerRoundScore() {
+        this.parseScores();
+    }
+
+    private void parseScores() {
         this.blueBoxerScore = Byte.parseByte(round.split("-")[1].replace(" ", ""));
         this.redBoxerScore = Byte.parseByte(round.split("-")[0].replace(" ", ""));
     }
