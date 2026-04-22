@@ -111,11 +111,7 @@ public class Brunosbox
          * Se llaman round score.
          */
 
-        whiteScoreCard.loadJudgeScoreCard(
-            // Escribe aquí el código para acceder al primer 
-            // elemento del array String[][] data de la línea 13,
-            // la tarjeta blanca
-        );
+        whiteScoreCard.loadJudgeScoreCard(data[0]);
         System.out.println(whiteScoreCard);
 
         /**
@@ -197,11 +193,7 @@ public class Brunosbox
         blueScoreCard.setRCorner("Rocky Balboa");
         blueScoreCard.setBCorner("Apollo Creed");
  
-        blueScoreCard.loadJudgeScoreCard(
-            // Escribe aquí el código para acceder al segundo 
-            // elemento del array String[][] data de la línea 13,
-            // la tarjeta azul
-        );
+        blueScoreCard.loadJudgeScoreCard(data[1]);
         System.out.println(blueScoreCard);
 
         /**
@@ -276,11 +268,7 @@ public class Brunosbox
         pinkScoreCard.setRCorner("Rocky Balboa");
         pinkScoreCard.setBCorner("Apollo Creed");
   
-        pinkScoreCard.loadJudgeScoreCard(
-            // Escribe aquí el código para acceder al tercer 
-            // elemento del array String[][] data de la línea 13,
-            // la tarjeta rosa
-        );
+        pinkScoreCard.loadJudgeScoreCard(data[2]);
         System.out.println(pinkScoreCard);
 
         /**
