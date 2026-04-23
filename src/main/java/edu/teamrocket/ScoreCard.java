@@ -52,7 +52,7 @@ public class ScoreCard {
 
     public void loadJudgeScoreCard(String[] judgeScoreCard) {
         
-        if (!Arrays.stream(judgeScoreCard).anyMatch(Objects::isNull)){
+        if (Arrays.stream(judgeScoreCard).noneMatch(Objects::isNull)){
             this.judgeScoreCard = judgeScoreCard;
 
             for (String round : judgeScoreCard) {
@@ -61,19 +61,34 @@ public class ScoreCard {
         }
     }
 
-    @Override
-    public String toString() {
-
-        StringBuilder Score = new StringBuilder();
+    private String viewRounds() {
+        StringBuilder score = new StringBuilder("\n");
         byte roundCounter = 1;
+        int redBoxerScore= 0;
+        int blueBoxerScore = 0;
 
-        Score.append("Round\tScore\tRound\tScore\tRound\n");
-        Score.append("Score\tTotal\t     \tTotal\tScore\n");
+        score.append("Round\tScore\tRound\tScore\tRound\n");
+        score.append("Score\tTotal\t     \tTotal\tScore\n");
 
         for (Round round : rounds) {
-            Score.append(round.getBlueBoxerScore() + "\t" + "\t" + roundCounter + "\t" + "\t" + round.getRedBoxerScore() + "\n");
-            roundCounter++;
+            redBoxerScore += round.getRedBoxerScore();
+            blueBoxerScore += round.getBlueBoxerScore();
+            score.append(round.getRedBoxerScore())
+                .append("\t")
+                .append(redBoxerScore)
+                .append("\t")
+                .append(roundCounter++)
+                .append("\t")
+                .append(blueBoxerScore)
+                .append("\t")
+                .append(round.getBlueBoxerScore())
+                .append("\n");
         }
-        return Score.toString();
+        return score.toString();
+    }
+
+    @Override
+    public String toString() {
+        return viewRounds();
     }
 }

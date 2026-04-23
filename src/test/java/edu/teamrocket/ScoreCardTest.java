@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ScoreCardTest {
+class ScoreCardTest {
 
     private ScoreCard card;
 
@@ -33,12 +33,12 @@ public class ScoreCardTest {
                                         "10 - 8"}; // knockdown
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         card = new ScoreCard("white");
     }
     
     @Test
-    public void loadJudgeScoreCardRoundFactoryRegularTest() {
+    void loadJudgeScoreCardRoundFactoryRegularTest() {
 
         card.loadJudgeScoreCard(whiteScoreCard);
         assertEquals(10, card.getNumRounds());
@@ -46,22 +46,21 @@ public class ScoreCardTest {
     } 
 
     @Test
-    public void loadJudgeScoreCardRoundFactoryNullTest() {
+    void loadJudgeScoreCardRoundFactoryNullTest() {
         card.loadJudgeScoreCard(new String[]{null, null});
         assertEquals(0, card.getNumRounds());
     }
 
     @Test
-    public void loadJudgeScoreCardRoundFactoryPointsDeductedTest() {
+    void loadJudgeScoreCardRoundFactoryPointsDeductedTest() {
 
         card.loadJudgeScoreCard(pinkScoreCard);
         assertEquals(10, card.getNumRounds());
         assertEquals(2, card.getRounds().stream().filter(a -> a instanceof PointsDeducted).count());
     }
 
-
     @Test
-    public void loadJudgeScoreCardRoundFactoryKnockDownTest() {
+    void loadJudgeScoreCardRoundFactoryKnockDownTest() {
 
         card.loadJudgeScoreCard(pinkScoreCard);
         assertEquals(10, card.getNumRounds());
@@ -69,7 +68,7 @@ public class ScoreCardTest {
     }
 
     @Test
-    public void getBoxerFinalScoreTest() {
+    void getBoxerFinalScoreTest() {
         assertEquals(0, card.getRedBoxerFinalScore());
         assertEquals(0, card.getBlueBoxerFinalScore());
         card.loadJudgeScoreCard(whiteScoreCard);

@@ -1,7 +1,5 @@
 package edu.teamrocket;
 
-import edu.teamrocket.ScoreCard;
-
 public class Brunosbox 
 {
     public static void main( String[] args ) {

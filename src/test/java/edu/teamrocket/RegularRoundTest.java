@@ -3,16 +3,16 @@ package edu.teamrocket;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-public class RegularRoundTest {
+class RegularRoundTest {
 
     @Test
-    public void replaceTest() {
+    void replaceTest() {
         RegularRound round = new RegularRound("10 - 9");
         assertEquals(round.getRoundScore(), "10-9");
     }
 
     @Test
-    public void roundScoreToIntTest() {
+    void roundScoreToIntTest() {
         RegularRound round = new RegularRound("10 - 9");
         assertEquals(round.getRoundScore(), "10-9");
         assertEquals(10, round.getRedBoxerScore());
@@ -20,7 +20,7 @@ public class RegularRoundTest {
     }
 
     @Test // este para el alumnado
-    public void boxerRoundScoreToIntTest() {
+    void boxerRoundScoreToIntTest() {
         RegularRound round = new RegularRound("10 - 9");
         assertEquals(10, round.getRedBoxerScore());
         assertEquals(9, round.getBlueBoxerScore());
