@@ -4,8 +4,10 @@ public class Brunosbox
 {
     public static void main( String[] args ) {
 
-        System.out.println("\n - I see three of them out there." + 
-                           "\n - Hit the one in the middle.- Rocky Balboa\n");
+        System.out.println("""
+                            - I see three of them out there.
+                            - Hit the one in the middle.- Rocky Balboa
+                            """);
 
         String[] headers = {"Round 1", "Round 2", "Round 3", "Round 4", "Round 5", 
                             "Round 6", "Round 7", "Round 8", "Round 9", "Round 10"};
@@ -188,7 +190,7 @@ public class Brunosbox
          */
 
         ScoreCard blueScoreCard = new ScoreCard("BLUE");
-        blueScoreCard.setRCorner("Rocky Balboa");
+        blueScoreCard.setRCorner("Rocky Balbo>a");
         blueScoreCard.setBCorner("Apollo Creed");
  
         blueScoreCard.loadJudgeScoreCard(data[1]);
