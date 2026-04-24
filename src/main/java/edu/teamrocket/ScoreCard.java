@@ -11,8 +11,7 @@ public class ScoreCard {
     private final String color;
     private String redCorner;
     private String blueCorner;
-    private String[] judgeScoreCard;
-    private List<Round> rounds = new ArrayList<Round>();
+    private List<Round> rounds = new ArrayList<>();
 
     public ScoreCard(String color) {
         this.color = color;
