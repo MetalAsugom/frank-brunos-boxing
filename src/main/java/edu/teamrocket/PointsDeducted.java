@@ -1,6 +1,6 @@
 package edu.teamrocket;
 
-public class PointsDeducted implements Round{
+public class PointsDeducted implements Round {
     private String round;
     private byte redBoxerScore;
     private byte blueBoxerScore;
@@ -15,11 +15,11 @@ public class PointsDeducted implements Round{
         this.parseScores();
     }
 
-    public byte parseComaBlue (String score) {
+    public byte parseComaBlue(String score) {
         return Byte.parseByte(score.substring(0, score.indexOf(",")));
     }
 
-    public byte parseComaRed (String score) {
+    public byte parseComaRed(String score) {
         return Byte.parseByte(score.substring(score.indexOf(",") + 1));
     }
 
@@ -32,8 +32,7 @@ public class PointsDeducted implements Round{
         if (blueBoxerJudgeScore.contains(",")) {
             this.blueBoxerScore = parseComaBlue(blueBoxerJudgeScore);
             this.redBoxerScore = Byte.parseByte(redBoxerJudgeScore);
-        }
-        else {
+        } else {
             this.redBoxerScore = parseComaRed(redBoxerJudgeScore);
             this.blueBoxerScore = Byte.parseByte(blueBoxerJudgeScore);
         }
@@ -44,7 +43,6 @@ public class PointsDeducted implements Round{
         return this.redBoxerScore;
     }
 
-    
     @Override
     public byte getBlueBoxerScore() {
         return this.blueBoxerScore;
