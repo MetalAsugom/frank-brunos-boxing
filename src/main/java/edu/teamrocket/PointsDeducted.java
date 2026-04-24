@@ -6,14 +6,14 @@ public class PointsDeducted implements Round{
     private byte blueBoxerScore;
 
     public PointsDeducted(String round) {
-        this.round = round.replaceAll(" ", "");
+        this.round = round.replace(" ", "");
         boxerRoundScore();
     }
 
     @Override
     public void boxerRoundScore() {
         this.parseScores();
-    };
+    }
 
     public byte parseComaBlue (String score) {
         return Byte.parseByte(score.substring(0, score.indexOf(",")));
@@ -26,16 +26,16 @@ public class PointsDeducted implements Round{
     private void parseScores() {
 
         String[] roundScores = getRoundScore().split("-", 2);
-        String redBoxerScore = roundScores[0];
-        String blueBoxerScore = roundScores[1];
+        String redBoxerJudgeScore = roundScores[0];
+        String blueBoxerJudgeScore = roundScores[1];
 
-        if (blueBoxerScore.contains(",")) {
-            this.blueBoxerScore = parseComaBlue(blueBoxerScore);
-            this.redBoxerScore = Byte.parseByte(redBoxerScore);
+        if (blueBoxerJudgeScore.contains(",")) {
+            this.blueBoxerScore = parseComaBlue(blueBoxerJudgeScore);
+            this.redBoxerScore = Byte.parseByte(redBoxerJudgeScore);
         }
         else {
-            this.redBoxerScore = parseComaRed(redBoxerScore);
-            this.blueBoxerScore = Byte.parseByte(blueBoxerScore);
+            this.redBoxerScore = parseComaRed(redBoxerJudgeScore);
+            this.blueBoxerScore = Byte.parseByte(blueBoxerJudgeScore);
         }
     }
 
