@@ -2,8 +2,7 @@ package edu.teamrocket;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.Optional;
 
 public class ScoreCard {
 
@@ -50,11 +49,13 @@ public class ScoreCard {
 
     public void loadJudgeScoreCard(String[] judgeScoreCard) {
 
-        if (Arrays.stream(judgeScoreCard).noneMatch(Objects::isNull)) {
+
+        Optional<String> roundsScore = Optional.empty();
+        
             for (String round : judgeScoreCard) {
-                rounds.add(RoundFactory.getRound(round));
+                roundsScore = Optional.ofNullable(round);
+                roundsScore.ifPresent(a -> rounds.add(RoundFactory.getRound(a)));
             }
-        }
     }
 
     private String viewRounds() {
