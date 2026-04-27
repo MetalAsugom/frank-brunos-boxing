@@ -2,17 +2,14 @@ package edu.teamrocket;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Arrays;
-import java.util.Objects;
-import edu.teamrocket.Round;
+import java.util.Optional;
 
 public class ScoreCard {
 
     private final String color;
     private String redCorner;
     private String blueCorner;
-    private String[] judgeScoreCard;
-    private List<Round> rounds = new ArrayList<Round>();
+    private List<Round> rounds = new ArrayList<>();
 
     public ScoreCard(String color) {
         this.color = color;
@@ -47,24 +44,24 @@ public class ScoreCard {
     }
 
     public byte getNumRounds() {
-        return (byte)rounds.size();
+        return (byte) rounds.size();
     }
 
     public void loadJudgeScoreCard(String[] judgeScoreCard) {
-        
-        if (Arrays.stream(judgeScoreCard).noneMatch(Objects::isNull)){
-            this.judgeScoreCard = judgeScoreCard;
 
+
+        Optional<String> roundsScore = Optional.empty();
+        
             for (String round : judgeScoreCard) {
-                rounds.add(RoundFactory.getRound(round));
+                roundsScore = Optional.ofNullable(round);
+                roundsScore.ifPresent(a -> rounds.add(RoundFactory.getRound(a)));
             }
-        }
     }
 
     private String viewRounds() {
         StringBuilder score = new StringBuilder("\n");
         byte roundCounter = 1;
-        int redBoxerScore= 0;
+        int redBoxerScore = 0;
         int blueBoxerScore = 0;
 
         score.append("Round\tScore\tRound\tScore\tRound\n");
@@ -74,15 +71,15 @@ public class ScoreCard {
             redBoxerScore += round.getRedBoxerScore();
             blueBoxerScore += round.getBlueBoxerScore();
             score.append(round.getRedBoxerScore())
-                .append("\t")
-                .append(redBoxerScore)
-                .append("\t")
-                .append(roundCounter++)
-                .append("\t")
-                .append(blueBoxerScore)
-                .append("\t")
-                .append(round.getBlueBoxerScore())
-                .append("\n");
+                    .append("\t")
+                    .append(redBoxerScore)
+                    .append("\t")
+                    .append(roundCounter++)
+                    .append("\t")
+                    .append(blueBoxerScore)
+                    .append("\t")
+                    .append(round.getBlueBoxerScore())
+                    .append("\n");
         }
         return score.toString();
     }
